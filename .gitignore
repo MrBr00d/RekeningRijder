@@ -12,3 +12,5 @@ wheels/
 *.txt
 test.py
 apikey.py
+.idea/
+.env

@@ -2,18 +2,18 @@ import sqlite3
 import pathlib
 
 def check_and_makedb() -> [sqlite3.Connection, sqlite3.Cursor]:
-    if pathlib.Path("data.db").is_file():
-        con = sqlite3.connect("data.db")
+    if pathlib.Path("data/data.db").is_file():
+        con = sqlite3.connect("data/data.db")
         cur = con.cursor()
         return con, cur
     else:
-        con = sqlite3.connect("data.db")
+        con = sqlite3.connect("data/data.db")
         cur = con.cursor()
         cur.execute("CREATE TABLE transacties(km, liters)")
         return con, cur
 
 def insert_data(con:sqlite3.connect, cur:sqlite3.Cursor, km:float, liters:float):
-    data = (km, liters)
+    data = (liters,km)
     cur.execute("INSERT INTO transacties VALUES(?, ?)", data)
     con.commit()
 

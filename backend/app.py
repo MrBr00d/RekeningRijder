@@ -2,15 +2,16 @@ from typing import Annotated
 from pydantic import BaseModel
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-
+import dotenv
+import os
 import database
-from apikey import API_KEY
 
 app = FastAPI()
+dotenv.load_dotenv()
 
 security = HTTPBearer()
 
-TOKEN = API_KEY
+TOKEN = os.getenv("APIKEY")
 
 class Item(BaseModel):
     km: float
