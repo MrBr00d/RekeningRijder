@@ -9,7 +9,7 @@ def check_and_makedb() -> [sqlite3.Connection, sqlite3.Cursor]:
     else:
         con = sqlite3.connect("data/data.db")
         cur = con.cursor()
-        cur.execute("CREATE TABLE transacties(km, liters)")
+        cur.execute("CREATE TABLE transacties(liters,km)")
         return con, cur
 
 def insert_data(con:sqlite3.connect, cur:sqlite3.Cursor, km:float, liters:float):

@@ -2,11 +2,19 @@ from typing import Annotated
 from pydantic import BaseModel
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi.middleware.cors import CORSMiddleware
 import dotenv
 import os
 import database
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # In production, replace "*" with your actual domain
+    allow_credentials=True,
+    allow_methods=["*"], # This allows POST, OPTIONS, GET, etc.
+    allow_headers=["*"], # This allows your Authorization header
+)
 dotenv.load_dotenv()
 
 security = HTTPBearer()
