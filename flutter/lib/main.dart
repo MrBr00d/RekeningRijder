@@ -38,7 +38,7 @@ class _FuelFormState extends State<FuelForm> {
       return;
     }
 
-    final url = Uri.parse('http://tankenbackend.nvvliet.nl/tanken');
+    final url = Uri.parse('https://tankenbackend.nvvliet.nl/tanken');
     final String apiKey = dotenv.env['APIKEY'] ?? '';
 
     try {
