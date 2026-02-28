@@ -10,10 +10,10 @@ import database
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://tanken.nvvliet.nl", "https://tanken.nvvliet.nl"], # In production, replace "*" with your actual domain
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"], # This allows POST, OPTIONS, GET, etc.
-    allow_headers=["*"], # This allows your Authorization header
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 dotenv.load_dotenv()
 
