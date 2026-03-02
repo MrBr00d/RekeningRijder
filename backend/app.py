@@ -10,7 +10,8 @@ import database
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://tanken.nvvliet.nl",
+                    "https://tanken.nvvliet.nl"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
